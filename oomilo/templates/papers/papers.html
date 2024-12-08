@@ -1,0 +1,31 @@
+{% extends "papers/base.html" %}
+{% block content %}
+    <h2>Hello Papers!</h2>
+    <button type="button" class="btn btn-outline-danger">
+        <i class="fa fa-plus"></i> Add papers
+    </button>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Paper</th>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for vals in papers.values %}
+          <tr>
+            <th scope="row">1</th>
+            <td><a href="{{vals.url}}">{{vals.name}}</a></td>
+            <td>{{vals.category}}</td>
+            <td class="py-1">
+                <button class="btn btn-outline-primary btn-xs"> <i class="fa fa-pencil"></i> Info</button>
+                <button class="btn btn-outline-primary btn-xs"> <i class="fa fa-pencil"></i> Edit</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock content %}
