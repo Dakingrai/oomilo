@@ -1,0 +1,27 @@
+{% extends "papers/base.html" %}
+{% block content %}
+    <h2>All tags</h2>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for vals in tags.values %}
+          <tr>
+            <th scope="row">1</th>
+            <td>{{vals.name}}</td>
+            <td>{{vals.description}}</td>
+            <td class="py-1">
+                <button class="btn btn-outline-primary btn-xs"> <i class="fa fa-eye"></i> <a href="{% url 'tag' vals.id %}">View</a> </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock content %}
